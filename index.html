@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Murat Sasmaz Portfolio</title>
   <link rel="stylesheet" href="css/styles.css" />
-
 </head>
 <body>
 
@@ -17,6 +16,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button></li>
       </ul>
     </nav>
   </header>
@@ -27,10 +27,33 @@
     <p>Hello! I'm Murat Sasmaz, a passionate and detail-oriented web development student based in Ontario, Canada. I have over 20 years of experience in accounting and financial management, and recently started a new journey in software development. I'm currently studying Computer Programming at Humber College. I love building websites, learning new technologies, and solving real-world problems through code. I'm especially passionate about game development.</p>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects (with Filtering) -->
   <section id="projects">
     <h2>Projects</h2>
-    <p>Projects coming soon...</p>
+    <div id="project-filters" role="tablist" aria-label="Project filters">
+      <button data-filter="all" role="tab" aria-selected="true">All</button>
+      <button data-filter="javascript" role="tab" aria-selected="false">JavaScript</button>
+      <button data-filter="htmlcss" role="tab" aria-selected="false">HTML/CSS</button>
+      <button data-filter="react" role="tab" aria-selected="false">React</button>
+    </div>
+    <div id="project-list">
+      <article class="project-card" data-category="javascript">
+        <h3>JS Project 1</h3>
+        <p>Small utility written in vanilla JS.</p>
+      </article>
+      <article class="project-card" data-category="htmlcss">
+        <h3>HTML/CSS Project 1</h3>
+        <p>Responsive landing page with clean layout.</p>
+      </article>
+      <article class="project-card" data-category="react">
+        <h3>React Project 1</h3>
+        <p>Component-based UI with hooks.</p>
+      </article>
+      <article class="project-card" data-category="javascript">
+        <h3>JS Project 2</h3>
+        <p>DOM interactivity and simple state.</p>
+      </article>
+    </div>
   </section>
 
   <!-- Contact Section -->
@@ -44,5 +67,6 @@
     <p>© 2025 Murat Sasmaz</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>

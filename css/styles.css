@@ -1,25 +1,53 @@
-/* General body styles */
+/* =========================
+   Theme Variables
+========================= */
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --header-bg: #333;
+  --header-text: #fff;
+  --section-bg: #fff;
+  --footer-bg: #333;
+  --footer-text: #fff;
+}
+
+.dark {
+  --bg-color: #0f1115;
+  --text-color: #e6e6e6;
+  --header-bg: #1a1a1a;
+  --header-text: #e6e6e6;
+  --section-bg: #1e1e1e;
+  --footer-bg: #1a1a1a;
+  --footer-text: #e6e6e6;
+}
+
+html { scroll-behavior: smooth; }
+
+/* =========================
+   Base / Global
+========================= */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0 0 80px 0; /* Padding at the bottom for footer */
+  padding: 0 0 80px 0;
   line-height: 1.6;
-  background-color: #f4f4f4;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
-/* Header styling */
+/* =========================
+   Header & Navigation
+========================= */
 header {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--header-bg);
+  color: var(--header-text);
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header h1 {
-  margin: 0;
-}
+header h1 { margin: 0; }
 
 nav ul {
   list-style: none;
@@ -30,64 +58,113 @@ nav ul {
 }
 
 nav a {
-  color: #fff;
+  color: var(--header-text);
   text-decoration: none;
   font-weight: bold;
 }
 
-/* Section spacing */
-section {
-  padding: 40px 20px;
-  background-color: #fff;
-  margin-bottom: 10px; 
+nav a:hover {
+  text-decoration: underline;
+  color: #ffd700;
 }
 
-/* Footer styling */
+#theme-toggle{
+  margin-left: 8px;
+  padding: 4px 8px;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* =========================
+   Sections
+========================= */
+section {
+  padding: 40px 20px;
+  background-color: var(--section-bg);
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: var(--text-color);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   Projects (Filtering)
+========================= */
+#project-filters {
+  margin: 10px 0 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#project-filters button {
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  border-radius: 6px;
+}
+
+#project-filters button:hover,
+#project-filters button[aria-selected="true"] {
+  background-color: #ffd700;
+  color: #000;
+}
+
+#project-list {
+  display: grid;
+  gap: 14px;
+}
+
+.project-card {
+  padding: 16px;
+  border: 1px solid #ccc;
+  background-color: var(--section-bg);
+  border-radius: 6px;
+  transition: transform 0.25s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+}
+
+/* =========================
+   Footer
+========================= */
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
   text-align: center;
   padding: 10px 0;
   position: fixed;
   width: 100%;
   bottom: 0;
   font-size: 0.9rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
-nav a:hover {
-  text-decoration: underline;
-  color: #ffd700; /* optional golden highlight */
-}
-h2 {
-  color: #333;
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-}
+
+/* =========================
+   Responsive
+========================= */
 @media (max-width: 600px) {
   header {
     flex-direction: column;
     text-align: center;
   }
-
   nav ul {
     flex-direction: column;
     gap: 10px;
     padding: 10px 0;
   }
-
-  section {
-    padding: 20px 10px;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  footer {
-    font-size: 0.8rem;
-  }
+  section { padding: 20px 10px; }
+  h2 { font-size: 1.5rem; }
+  footer { font-size: 0.8rem; }
 }
-html { scroll-behavior: smooth; }
