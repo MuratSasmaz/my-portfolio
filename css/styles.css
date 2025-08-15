@@ -90,3 +90,4 @@ h2 {
     font-size: 0.8rem;
   }
 }
+html { scroll-behavior: smooth; }
